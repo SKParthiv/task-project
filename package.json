@@ -1,0 +1,8 @@
+{
+  "name": "pygame-strategy-game",
+  "private": true,
+  "scripts": {
+    "start": "python3 main.py",
+    "test": "python3 -m pytest"
+  }
+}
