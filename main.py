@@ -23,6 +23,10 @@ def main():
         pygame.display.flip()
         clock.tick(FPS)
         
+        if game.core_hp <= 0:
+            running = False
+            print("Game Over")
+        
     pygame.quit()
 
 if __name__ == "__main__":

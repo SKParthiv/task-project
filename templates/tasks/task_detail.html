@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>{{ task.title }}</h2>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ task.description }}</p>
+        <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">
+                <strong>Priority:</strong> 
+                <span class="badge {% if task.priority == 'HIGH' %}bg-danger{% elif task.priority == 'MEDIUM' %}bg-warning{% else %}bg-info{% endif %}">
+                    {{ task.priority }}
+                </span>
+            </li>
+            <li class="list-group-item"><strong>Created:</strong> {{ task.created_date|date:"M d, Y H:i" }}</li>
+            <li class="list-group-item"><strong>Due Date:</strong> {{ task.due_date|date:"M d, Y H:i" }}</li>
+            <li class="list-group-item"><strong>Status:</strong> {% if task.completed %}Completed{% else %}Pending{% endif %}</li>
+        </ul>
+        <a href="{% url 'tasks:task-update' task.pk %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'tasks:task-delete' task.pk %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'tasks:task-list' %}" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock %}

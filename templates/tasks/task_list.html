@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1>My Tasks</h1>
+        {% if tasks %}
+            <div class="list-group">
+                {% for task in tasks %}
+                    <a href="{% url 'tasks:task-detail' task.pk %}" class="list-group-item list-group-item-action {% if task.completed %}bg-light{% endif %}">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{ task.title }}</h5>
+                            <small class="text-muted">Due: {{ task.due_date|date:"M d, Y H:i" }}</small>
+                        </div>
+                        <p class="mb-1">{{ task.description|truncatechars:100 }}</p>
+                        <small class="text-muted">
+                            Priority: 
+                            <span class="badge {% if task.priority == 'HIGH' %}bg-danger{% elif task.priority == 'MEDIUM' %}bg-warning{% else %}bg-info{% endif %}">
+                                {{ task.priority }}
+                            </span>
+                        </small>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No tasks found. <a href="{% url 'tasks:task-create' %}">Create one?</a></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

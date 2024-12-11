@@ -10,7 +10,12 @@ class Sidebar:
             {'name': 'quad_torrent', 'cost': WEAPONS['quad_torrent']['cost']},
             {'name': 'trap', 'cost': WEAPONS['trap']['cost']},
             {'name': 'wall', 'cost': WEAPONS['wall']['cost']},
-            {'name': 'ultimate', 'cost': WEAPONS['ultimate']['cost']}
+            {'name': 'ultimate', 'cost': WEAPONS['ultimate']['cost']},
+            {'name': 'mine1', 'cost': MINES['mine1']['cost']},
+            {'name': 'mine2', 'cost': MINES['mine2']['cost']},
+            {'name': 'mine3', 'cost': MINES['mine3']['cost']},
+            {'name': 'mine4', 'cost': MINES['mine4']['cost']},
+            {'name': 'mine5', 'cost': MINES['mine5']['cost']}
         ]
         
     def draw(self, screen):
